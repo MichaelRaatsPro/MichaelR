@@ -27,10 +27,17 @@ import Todos from './Todos';
 // }
 
 const Header = () => {
+  const myStyle = {
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Sans-Serif"
+  };
+
   return (
     <>
-      <h1 style = {{color: "red"}}>Inline Styling!</h1>
-      <p>Red Color!</p>
+      <h1 style = {myStyle}>JS Object Styling!</h1>
+      <p>StyleAttribute</p>
     </>
   );
 }
