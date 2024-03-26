@@ -26,6 +26,18 @@ import Todos from './Todos';
 //   );
 // }
 
+const Header = () => {
+  return (
+    <>
+      <h1 style = {{color: "red"}}>Inline Styling!</h1>
+      <p>Red Color!</p>
+    </>
+  );
+}
+
+const sandy = ReactDOM.createRoot(document.getElementById('sandy'));
+sandy.render(<Header/>)
+
 const App = () => {
   const [count, setCount] = useState(0);
   const [todos, setTodos] = useState(["todo 1","todo 2"]);
