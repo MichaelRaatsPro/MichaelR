@@ -9,22 +9,42 @@ import { useState } from 'react';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import Todos from './Todos';
 
-ReactDOM.createRoot(document.getElementById('sandy')).render(<p>Hello</p>);
+//ReactDOM.createRoot(document.getElementById('sandy')).render(<p>Hello</p>);
 
-export default function App(){
+// export default function App(){
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Layout/>}>
+//           <Route index element={<Home/>} />
+//           <Route path="blogs" element = {<Blogs />} />
+//           <Route path="contact" element= {<Contact/>} />
+//           <Route path="*" element ={<NoPage/>} />
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState(["todo 1","todo 2"]);
+
+  const increment = () => {
+    setCount((c) => c + 1);
+  }; 
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home/>} />
-          <Route path="blogs" element = {<Blogs />} />
-          <Route path="contact" element= {<Contact/>} />
-          <Route path="*" element ={<NoPage/>} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Todos todos = {todos} />
+      <hr/>
+      <div>
+        <p>Count: {count}</p>
+        <button onClick= {increment}>Increment</button>
+      </div>
+    </>
   );
-}
+};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App/>)
