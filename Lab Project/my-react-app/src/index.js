@@ -1,8 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+import Blogs from './pages/Blogs';
+import Contact from './pages/Contact';
+import NoPage from './pages/NoPage';
 import { useState } from 'react';
 
 ReactDOM.createRoot(document.getElementById('sandy')).render(<p>Hello</p>);
+
+export default function App(){
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<Home/>} />
+          <Route path="blogs" element = {<Blogs />} />
+          <Route path="contact" element= {<Contact/>} />
+          <Route path="*" element ={<NoPage/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App/>)
+
+
+
+
+
+
+
+
+
 
 //const myElement = <h1>React is {5 + 5} times better with JSX</h1>;
 
@@ -39,13 +71,6 @@ function MyForm() {
     </form>
   )
 }
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyForm/>);
-
-
-
-
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<MyForm />);
