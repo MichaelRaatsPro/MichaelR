@@ -6,6 +6,8 @@ import Blogs from './pages/Blogs';
 import Contact from './pages/Contact';
 import NoPage from './pages/NoPage';
 import { useState } from 'react';
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Todos from './Todos';
 
 ReactDOM.createRoot(document.getElementById('sandy')).render(<p>Hello</p>);
 
@@ -51,26 +53,26 @@ root.render(<App/>)
 //     <form> 
 //       <textarea value = {textarea} onChange = {handleChange} />        
 //     </form>                                                         //change value in the textarea
+// //   )
+// // }
+
+// function MyForm() {
+//   const [myCar, setMyCar] = useState("Volvo");
+
+//   const handleChange = (event) => {
+//     setMyCar(event.target.value)
+//   }
+
+//   return (
+//     <form>
+//       <select value = {myCar} oncange = {handleChange}>
+//         <option value = "Ford">Ford</option>
+//         <option value = "Audi">Volvo</option>
+//         <option value = "Mercedes">Fiat</option>  
+//       </select>
+//     </form>
 //   )
 // }
-
-function MyForm() {
-  const [myCar, setMyCar] = useState("Volvo");
-
-  const handleChange = (event) => {
-    setMyCar(event.target.value)
-  }
-
-  return (
-    <form>
-      <select value = {myCar} oncange = {handleChange}>
-        <option value = "Ford">Ford</option>
-        <option value = "Audi">Volvo</option>
-        <option value = "Mercedes">Fiat</option>  
-      </select>
-    </form>
-  )
-}
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<MyForm />);
@@ -80,16 +82,16 @@ function MyForm() {
 
 
 
-const myElement = (
-  <>
-    <p>Paragraph 1</p>
-    <p>Paragraph 2</p>
-  </>
-);
+// const myElement = (
+//   <>
+//     <p>Paragraph 1</p>
+//     <p>Paragraph 2</p>
+//   </>
+// );
 
 
 
-//ReactDOM.createRoot(document.getElementById('root')).render(myElement);
+// //ReactDOM.createRoot(document.getElementById('root')).render(myElement);
 //root.render(myFirstElement); //renders html page
 
 //If we have to write HTML on multiple lines, we can put the HTML in parentheses:
