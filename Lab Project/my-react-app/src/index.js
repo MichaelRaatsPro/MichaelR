@@ -11,7 +11,7 @@ import Todos from './Todos';
 
 //ReactDOM.createRoot(document.getElementById('sandy')).render(<p>Hello</p>);
 
-// export default function App(){
+// export default function Navigation(){
 //   return (
 //     <BrowserRouter>
 //       <Routes>
@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <>
       <h1 style = {myStyle}>JS Object Styling!</h1>
-      <p>StyleAttribute</p>
+      <p>Style Attribute</p>
     </>
   );
 }
@@ -45,37 +45,156 @@ const Header = () => {
 const sandy = ReactDOM.createRoot(document.getElementById('sandy'));
 sandy.render(<Header/>)
 
-const App = () => {
-  const [count, setCount] = useState(0);
-  const [todos, setTodos] = useState(["todo 1","todo 2"]);
+// function MissedGoal(){
+//   return <h1>WHIFFED IT!</h1>;
+// }
 
-  const increment = () => {
-    setCount((c) => c + 1);
-  }; 
+// function MadeGoal(){
+//   return <h1>GOAL!</h1>
+// }
 
-  return (
+// function Goal(props){
+//   const isGoal = props.isGoal;
+//   return (
+//     <>
+//       {isGoal? <MadeGoal/> : <MissedGoal/> }
+//     </>
+//   );
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Goal isGoal={true}/>);
+
+
+// class Car extends React.Component {
+//   constructor(props){
+//     super(props);
+//     this.state = {
+//       brand: "Ford",
+//       model: "Mustang ",
+//       color: "blue ",
+//       year: 2010
+//     };                                                                                                                                                                                                                                                                                                                                                                                                                      
+//   }
+//   changeColor = () => {
+//     this.setState({color: "red "});
+//   }
+
+//   render(){
+//     return (
+//     <div> 
+//       <h1>Car Company: {this.state.brand}</h1>
+//       <p>
+//         It is a {this.state.color} 
+//          {this.state.model}
+//         from {this.state.year}
+//       </p>
+//       <button 
+//       type = "button"
+//       onClick= {this.changeColor}>Change colour</button>
+//     </div>
+//     );
+//   }
+// }
+
+function Car(props){
+  return <li>Car Brand: {props.brand}!</li>
+}
+
+function Garage(props){
+  const cars = [
+    {id: 1, brand: 'Ford'},
+    {id: 2, brand: 'BMW'},
+    {id: 3,brand: 'Audi'}
+  ];
+    return (
     <>
-      <Todos todos = {todos} />
-      <hr/>
-      <div>
-        <p>Count: {count}</p>
-        <button onClick= {increment}>Increment</button>
-      </div>
+      <h1>What's in my garage?</h1>
+      <ul>
+        {cars.map((car)=> <Car key = {car.id} brand= {car.brand} />)}
+      </ul>
     </>
   );
-};
+}
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Garage />);
+
+function MyForm(){
+  const [inputs,setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputs);
+  }
+
+  return (
+    <form onSubmit= {handleSubmit}>
+      <label>Enter your name:
+        <input type = "text"
+        name = "username"
+        value = {inputs.username || ""}
+        onChange = {handleChange}
+        />
+      </label>
+      <label>Enter your age:
+        <input type= "number"
+        name = "age"
+        value = {inputs.age || ""}
+        onChange= {handleChange}
+        />
+      </label>
+      <input type = "submit"/>
+    </form>
+  )
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App/>)
+root.render(<MyForm/>);
 
 
 
+// const App = () => {
+//   const [count, setCount] = useState(0);
+//   const [todos, setTodos] = useState(["todo 1","todo 2"]);
 
+//   const increment = () => {
+//     setCount((c) => c + 1);
+//   }; 
 
+//   return (
+//     <>
+//       <Todos todos = {todos} />
+//       <hr/>
+//       <div>
+//         <p>Count: {count}</p>
+//         <button onClick= {increment}>Increment</button>
+//       </div>
+//     </>
+//   );
+// };
 
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App/>)
 
+// function Click(){
+//   const mouse = (a,b) => {
+//     alert(b.type);
+//   }
 
+//   return (
+//     <button onClick={(event) => mouse("Nice Click!",event)}>Click Here!</button>
+//   );
+// }
 
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Click/>);
 
 //const myElement = <h1>React is {5 + 5} times better with JSX</h1>;
 
@@ -115,9 +234,6 @@ root.render(<App/>)
 
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<MyForm />);
-
-
-
 
 
 
