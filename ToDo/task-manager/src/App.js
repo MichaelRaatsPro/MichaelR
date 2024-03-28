@@ -7,9 +7,8 @@ function App() {
     <div className="TodoWrapper">
       <header className="App-header">
         <h1 id = "mainTitle">Task Manager</h1>
-
-        <TodoWrapper/>
       </header>
+      <TodoWrapper/>
     </div>
   );
 }
