@@ -1,11 +1,20 @@
-import suits from "./suits.png";
+import suits from "./images/suits.png";
 import react from 'react';
 import './App.css';
 
 function App() {
   
-  const Card = ({suit,value, faceUp, onClick}) => {
-    const cardColor = suit === 'Hearts' || suit === 'Diamonds' ? 'red' : 'black';
+  const Card = ({suit,value, isFaceUp, onClick}) => {
+    const cardColor = suit === 'Hearts' || suit === 'Diamonds'? 'red' : 'black';
+
+    return (
+      <div className = {`card ${isFaceUp? 'face-up' : 'face-down'}`}
+      style={{ color: cardColor }}
+      onClick={onClick}
+      >
+      {isFaceUp ? `${value} ${suit}` : 'Card Back'}
+      </div>
+    )
   }
   
   return (
