@@ -1,13 +1,29 @@
+import suits from "./suits.png";
 import react from 'react';
-import suites from ".\suite.png"
 import './App.css';
 
 function App() {
+  
+  const Card = ({suit,value, faceUp, onClick}) => {
+    const cardColor = suit === 'Hearts' || suit === 'Diamonds' ? 'red' : 'black';
+  }
+  
   return (
     <>
-    <img src = {suites} alt = "Suites" style = {{float: 'right' ,marginLeft:'20px'}}/>
-    <h1>Welcome to solitaire</h1>
-    <h2>By Michael Raats</h2>  
+    {/*Header and logo}*/}
+    <div className = "container">
+      <div>
+      <h1 className="h1">Welcome to solitaire</h1>
+      <h2>By Michael Raats</h2>  
+      </div>
+      <img src = {suits} alt = "Suits" style = {{float: 'right' ,marginLeft:'20px' ,height: '100px', width: 'auto' ,border: '2px solid black'}}/>
+    </div>
+    {/*Header and logo}*/}
+
+    
+
+
+
     </>
     );
 }
